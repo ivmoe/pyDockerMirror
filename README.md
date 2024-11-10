@@ -40,8 +40,9 @@ wget https://github.com/ivmoe/pyDockerMirror/releases/download/v1.0.0/pyDockerMi
 ```bash
 # 安装python依赖库 pyinstaller、docker
 pip3 install pyinstaller docker
+
 # 下载仓库代码
-git clone 
+git clone https://github.com/ivmoe/pyDockerMirror.git
 
 # 进入仓库目录
 cd pyDockerMirror
