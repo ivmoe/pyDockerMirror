@@ -99,26 +99,23 @@ if __name__ == '__main__':
     arg_option = sys.argv[1]
     if arg_option not in arguments:
         print("ERROR: 无效参数，请使用命令'pydm help'查看帮助信息。")
-
     elif arg_option == "help":
         help_info()
     elif arg_option == "init":
         init_config()
+    elif os.path.exists(CONFIG_FILE):
+        config = open_config()
+        domain = config.get("privateRegistry").get("domain")
+        project = config.get("privateRegistry").get("project")
+        username = config.get("privateRegistry").get("username")
+        password = config.get("privateRegistry").get("password")
+        if arg_option == "config":
+            print(config)
+        elif arg_option == "pull":
+            imageName = pull_image(config)
+            target_name = rename_tag(imageName, domain, project)
+            push_image(target_name, username, password, domain, project)
+        elif arg_option == "pull-local":
+            imageName = pull_image(config)
     else:
-        if not os.path.exists(CONFIG_FILE):
-            print("Warning: 未检测到pydm配置文件，请执行命令'pydm init'进行初始化！")
-        else:
-            config = open_config()
-            domain = config.get("privateRegistry").get("domain")
-            project = config.get("privateRegistry").get("project")
-            username = config.get("privateRegistry").get("username")
-            password = config.get("privateRegistry").get("password")
-
-            if arg_option == "config":
-                print(config)
-            elif arg_option == "pull":
-                imageName = pull_image(config)
-                target_name = rename_tag(imageName, domain, project)
-                push_image(target_name, username, password, domain, project)
-            elif arg_option == "pull-local":
-                imageName = pull_image(config)
+        print("Warning: 未检测到pydm配置文件，请执行命令'pydm init'进行初始化！")
