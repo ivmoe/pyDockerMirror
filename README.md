@@ -9,6 +9,8 @@
 
 *PS: 其实我认为目前功能已经够用了，上边功能哪天闲下来再加吧。*
 
+## 镜像加速器配置
+
 针对目前DockerHub官方被Ban的情况下，可以通过配置`/etc/docker/daemon.json`配置镜像加速器。
 
 下面是我的配置：
@@ -29,12 +31,6 @@ systemctl restart docker.service
 
 ## 编译
 
-* 二进制文件下载地址
-
-```bash
-wget https://github.com/ivmoe/pyDockerMirror/releases/download/v1.0.0/pyDockerMirror.tar.gz
-```
-
 * 源码编译
 
 ```bash
@@ -52,6 +48,13 @@ pyinstaller -F pydm.py
 ```
 
 ## 使用说明
+
+* 下载二进制文件并解压
+
+```bash
+wget https://github.com/ivmoe/pyDockerMirror/releases/download/v1.0.0/pyDockerMirror.tar.gz
+tar -zxvf pyDockerMirror.tar.gz
+```
 
 * 添加执行权限，并拷贝至`/usr/local/bin`目录下
 
