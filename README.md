@@ -5,7 +5,7 @@
 理论上凡是支持Docker登录、pull、push的私有仓库均适用。
 
 ## TODO
-- [] 批量镜像拉取及推送
+- [ ] 批量镜像拉取及推送
 
 *PS: 其实我认为目前功能已经够用了，上边功能哪天闲下来再加吧。*
 
@@ -29,10 +29,10 @@ systemctl restart docker.service
 
 ## 编译
 
-* 二进制文件（已编译好）下载地址
+* 二进制文件下载地址
 
 ```bash
-wget 
+wget https://github.com/ivmoe/pyDockerMirror/releases/download/v1.0.0/pyDockerMirror.tar.gz
 ```
 
 * 源码编译
