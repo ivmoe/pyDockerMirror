@@ -96,8 +96,10 @@ def push_image(target_name, username, password, domain, project):
 
 if __name__ == '__main__':
     arguments = ["help", "init", "config", "pull", "pull-local"]
-    arg_option = sys.argv[1]
-    if arg_option not in arguments:
+    arg_option = None
+    if len(sys.argv) > 1:
+        arg_option = sys.argv[1]
+    if not arg_option or (arg_option not in arguments):
         print("ERROR: 无效参数，请使用命令'pydm help'查看帮助信息。")
     elif arg_option == "help":
         help_info()
